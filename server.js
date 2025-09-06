@@ -8,7 +8,11 @@ import chatRoutes from "./routes/chatRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*",   // or restrict later: ["https://your-netlify-site.netlify.app"]
+  methods: ["GET", "POST"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
