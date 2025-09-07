@@ -9,14 +9,15 @@ const Register = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const API_URL = "https://ai-chatbot-backend-66k1.onrender.com";
+ const API_BASE = "https://ai-chatbot-backend-66k1.onrender.com";
 const handleRegister = async () => {
   try {
-    await axios.post(`${API_URL}/api/auth/register`, {
-      username,
-      email,
-      password,
-    });
+    await axios.post(`${API_BASE}/api/auth/register`, {
+  username,
+  email,
+  password,
+});
+
     navigate("/login"); // redirect to login after registration
   } catch (err) {
     setError("Registration failed. Try another email.");
