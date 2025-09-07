@@ -10,10 +10,12 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const API_BASE = "https://ai-chatbot-backend-66k1.onrender.com";
+      const res = await axios.post(`${API_BASE}/api/auth/login`, {
         email,
         password,
       });
+
       localStorage.setItem("token", res.data.token);
       navigate("/chat"); // redirect to chat
     } catch (err) {
